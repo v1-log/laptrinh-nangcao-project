@@ -39,7 +39,7 @@ public abstract class Item {
         if (currentPrice > this.currentPrice) {
             this.currentPrice = currentPrice;
         } else {
-            throw new RuntimeException("New price must be higher than current price");
+            throw new RuntimeException("New price must be higher than current price haha");
         }
     }
 
