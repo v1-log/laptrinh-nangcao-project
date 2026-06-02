@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+
+<StackPane xmlns:fx="http://javafx.com/fxml"
+           fx:controller="com.auctionhouse.client.controller.LoginController"
+           style="-fx-background-color: #0f0f13;">
+
+    <Circle radius="320" fill="#1a1a2e" translateX="-220" translateY="-180"/>
+    <Circle radius="210" fill="#16213e" translateX="270" translateY="220"/>
+
+    <VBox alignment="CENTER" spacing="0" maxWidth="420">
+
+        <VBox alignment="CENTER" spacing="8" style="-fx-padding: 0 0 36 0;">
+            <Label text="*"
+                   style="-fx-font-size: 48px; -fx-text-fill: #7c6af7;"/>
+            <Label text="AUCTION HOUSE"
+                   style="-fx-font-size: 22px; -fx-font-weight: bold;
+                          -fx-text-fill: white; -fx-letter-spacing: 4px;"/>
+            <Label text="Real-time bidding platform"
+                   style="-fx-font-size: 12px; -fx-text-fill: #666;"/>
+        </VBox>
+
+        <VBox spacing="16"
+              style="-fx-background-color: #1a1a2e;
+                     -fx-border-color: #2a2a4a;
+                     -fx-border-width: 1;
+                     -fx-border-radius: 16;
+                     -fx-background-radius: 16;
+                     -fx-padding: 32;
+                     -fx-effect: dropshadow(gaussian, #000000aa, 30, 0, 0, 8);">
+
+            <Label text="Sign in"
+                   style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+
+            <VBox spacing="6">
+                <Label text="Username" style="-fx-font-size: 12px; -fx-text-fill: #888;"/>
+                <TextField fx:id="usernameField"
+                           promptText="Enter your username"
+                           style="-fx-background-color: #0f0f1a;
+                                  -fx-text-fill: white;
+                                  -fx-prompt-text-fill: #444;
+                                  -fx-border-color: #2a2a4a;
+                                  -fx-border-width: 1;
+                                  -fx-border-radius: 8;
+                                  -fx-background-radius: 8;
+                                  -fx-padding: 10 14;
+                                  -fx-font-size: 13px;"/>
+            </VBox>
+
+            <VBox spacing="6">
+                <Label text="Password" style="-fx-font-size: 12px; -fx-text-fill: #888;"/>
+                <HBox spacing="8" alignment="CENTER_LEFT">
+                    <StackPane HBox.hgrow="ALWAYS">
+                        <PasswordField fx:id="passwordField"
+                                       promptText="Enter your password"
+                                       maxWidth="Infinity"
+                                       style="-fx-background-color: #0f0f1a;
+                                              -fx-text-fill: white;
+                                              -fx-prompt-text-fill: #444;
+                                              -fx-border-color: #2a2a4a;
+                                              -fx-border-width: 1;
+                                              -fx-border-radius: 8;
+                                              -fx-background-radius: 8;
+                                              -fx-padding: 10 14;
+                                              -fx-font-size: 13px;"/>
+                        <TextField fx:id="passwordVisibleField"
+                                   visible="false"
+                                   managed="false"
+                                   promptText="Enter your password"
+                                   maxWidth="Infinity"
+                                   style="-fx-background-color: #0f0f1a;
+                                          -fx-text-fill: white;
+                                          -fx-prompt-text-fill: #444;
+                                          -fx-border-color: #2a2a4a;
+                                          -fx-border-width: 1;
+                                          -fx-border-radius: 8;
+                                          -fx-background-radius: 8;
+                                          -fx-padding: 10 14;
+                                          -fx-font-size: 13px;"/>
+                    </StackPane>
+                    <Button fx:id="togglePasswordButton"
+                            text="👁"
+                            onAction="#togglePasswordVisibility"
+                            focusTraversable="false"
+                            style="-fx-background-color: #0f0f1a;
+                                   -fx-text-fill: #d6dcf0;
+                                   -fx-font-size: 15px;
+                                   -fx-font-weight: bold;
+                                   -fx-border-color: #2a2a4a;
+                                   -fx-border-width: 1;
+                                   -fx-border-radius: 8;
+                                   -fx-background-radius: 8;
+                                   -fx-padding: 8 11;
+                                   -fx-cursor: hand;"/>
+                </HBox>
+            </VBox>
+
+            <Label fx:id="statusLabel" wrapText="true"
+                   style="-fx-font-size: 12px; -fx-text-fill: #7c6af7;"/>
+
+            <Button fx:id="loginButton"
+                    text="Sign in"
+                    onAction="#handleLogin"
+                    maxWidth="Infinity"
+                    style="-fx-background-color: #7c6af7;
+                           -fx-text-fill: white;
+                           -fx-font-size: 14px;
+                           -fx-font-weight: bold;
+                           -fx-border-radius: 8;
+                           -fx-background-radius: 8;
+                           -fx-padding: 11 0;
+                           -fx-cursor: hand;"/>
+
+            <HBox alignment="CENTER" spacing="4">
+                <Label text="Don't have an account?"
+                       style="-fx-text-fill: #7d86a8; -fx-font-size: 12px;"/>
+                <Button text="Sign up"
+                        onAction="#goToRegister"
+                        style="-fx-background-color: transparent;
+                               -fx-text-fill: #32a883;
+                               -fx-font-size: 12px;
+                               -fx-font-weight: bold;
+                               -fx-padding: 0;
+                               -fx-cursor: hand;"/>
+            </HBox>
+
+            <HBox alignment="CENTER" spacing="10">
+                <Line endX="120" stroke="#2a2a4a"/>
+                <Label text="quick access"
+                       style="-fx-text-fill: #444; -fx-font-size: 11px;"/>
+                <Line endX="120" stroke="#2a2a4a"/>
+            </HBox>
+
+            <HBox spacing="8">
+                <Button text="Bidder" onAction="#loginAsBidder"
+                        HBox.hgrow="ALWAYS" maxWidth="Infinity"
+                        style="-fx-background-color: #0f0f1a; -fx-text-fill: #5dcaa5;
+                               -fx-border-color: #1a3a2e; -fx-border-width: 1;
+                               -fx-border-radius: 8; -fx-background-radius: 8;
+                               -fx-padding: 8; -fx-font-size: 12px; -fx-cursor: hand;"/>
+                <Button text="Seller" onAction="#loginAsSeller"
+                        HBox.hgrow="ALWAYS" maxWidth="Infinity"
+                        style="-fx-background-color: #0f0f1a; -fx-text-fill: #f0c040;
+                               -fx-border-color: #3a2e1a; -fx-border-width: 1;
+                               -fx-border-radius: 8; -fx-background-radius: 8;
+                               -fx-padding: 8; -fx-font-size: 12px; -fx-cursor: hand;"/>
+                <Button text="Admin" onAction="#loginAsAdmin"
+                        HBox.hgrow="ALWAYS" maxWidth="Infinity"
+                        style="-fx-background-color: #0f0f1a; -fx-text-fill: #f09595;
+                               -fx-border-color: #3a1a1a; -fx-border-width: 1;
+                               -fx-border-radius: 8; -fx-background-radius: 8;
+                               -fx-padding: 8; -fx-font-size: 12px; -fx-cursor: hand;"/>
+            </HBox>
+
+        </VBox>
+    </VBox>
+</StackPane>

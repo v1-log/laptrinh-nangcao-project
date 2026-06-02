@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+
+<StackPane xmlns:fx="http://javafx.com/fxml"
+           fx:controller="com.auctionhouse.client.controller.RegisterController"
+           style="-fx-background-color: #0d1119;">
+
+    <Circle radius="280" fill="#123247" translateX="-240" translateY="-170"/>
+    <Circle radius="220" fill="#183a54" translateX="250" translateY="210"/>
+
+    <VBox alignment="CENTER" spacing="0" maxWidth="420">
+
+        <VBox alignment="CENTER" spacing="8" style="-fx-padding: 0 0 30 0;">
+            <Label text="+"
+                   style="-fx-font-size: 48px; -fx-text-fill: #32a883;"/>
+            <Label text="CREATE ACCOUNT"
+                   style="-fx-font-size: 22px; -fx-font-weight: bold;
+                          -fx-text-fill: white; -fx-letter-spacing: 3px;"/>
+            <Label text="Join the auction platform"
+                   style="-fx-font-size: 12px; -fx-text-fill: #7d86a8;"/>
+        </VBox>
+
+        <VBox spacing="16"
+              style="-fx-background-color: #141b28;
+                     -fx-border-color: #24304d;
+                     -fx-border-width: 1;
+                     -fx-border-radius: 16;
+                     -fx-background-radius: 16;
+                     -fx-padding: 30;
+                     -fx-effect: dropshadow(gaussian, #000000aa, 30, 0, 0, 8);">
+
+            <VBox spacing="6">
+                <Label text="Display name" style="-fx-font-size: 12px; -fx-text-fill: #92a0be;"/>
+                <TextField fx:id="displayNameField"
+                           promptText="How your name should appear"
+                           style="-fx-background-color: #0f1520;
+                                  -fx-text-fill: white;
+                                  -fx-prompt-text-fill: #44506a;
+                                  -fx-border-color: #2b3a58;
+                                  -fx-border-width: 1;
+                                  -fx-border-radius: 8;
+                                  -fx-background-radius: 8;
+                                  -fx-padding: 10 14;
+                                  -fx-font-size: 13px;"/>
+            </VBox>
+
+            <VBox spacing="6">
+                <Label text="Username" style="-fx-font-size: 12px; -fx-text-fill: #92a0be;"/>
+                <TextField fx:id="usernameField"
+                           promptText="Use letters, numbers, underscore"
+                           style="-fx-background-color: #0f1520;
+                                  -fx-text-fill: white;
+                                  -fx-prompt-text-fill: #44506a;
+                                  -fx-border-color: #2b3a58;
+                                  -fx-border-width: 1;
+                                  -fx-border-radius: 8;
+                                  -fx-background-radius: 8;
+                                  -fx-padding: 10 14;
+                                  -fx-font-size: 13px;"/>
+            </VBox>
+
+            <VBox spacing="6">
+                <Label text="Password" style="-fx-font-size: 12px; -fx-text-fill: #92a0be;"/>
+                <HBox spacing="8" alignment="CENTER_LEFT">
+                    <StackPane HBox.hgrow="ALWAYS">
+                        <PasswordField fx:id="passwordField"
+                                       promptText="At least 4 characters"
+                                       maxWidth="Infinity"
+                                       style="-fx-background-color: #0f1520;
+                                              -fx-text-fill: white;
+                                              -fx-prompt-text-fill: #44506a;
+                                              -fx-border-color: #2b3a58;
+                                              -fx-border-width: 1;
+                                              -fx-border-radius: 8;
+                                              -fx-background-radius: 8;
+                                              -fx-padding: 10 14;
+                                              -fx-font-size: 13px;"/>
+                        <TextField fx:id="passwordVisibleField"
+                                   visible="false"
+                                   managed="false"
+                                   promptText="At least 4 characters"
+                                   maxWidth="Infinity"
+                                   style="-fx-background-color: #0f1520;
+                                          -fx-text-fill: white;
+                                          -fx-prompt-text-fill: #44506a;
+                                          -fx-border-color: #2b3a58;
+                                          -fx-border-width: 1;
+                                          -fx-border-radius: 8;
+                                          -fx-background-radius: 8;
+                                          -fx-padding: 10 14;
+                                          -fx-font-size: 13px;"/>
+                    </StackPane>
+                    <Button fx:id="togglePasswordButton"
+                            text="👁"
+                            onAction="#togglePasswordVisibility"
+                            focusTraversable="false"
+                            style="-fx-background-color: #0f1520;
+                                   -fx-text-fill: #d6dcf0;
+                                   -fx-font-size: 15px;
+                                   -fx-font-weight: bold;
+                                   -fx-border-color: #2b3a58;
+                                   -fx-border-width: 1;
+                                   -fx-border-radius: 8;
+                                   -fx-background-radius: 8;
+                                   -fx-padding: 8 11;
+                                   -fx-cursor: hand;"/>
+                </HBox>
+            </VBox>
+
+            <VBox spacing="6">
+                <Label text="Confirm password" style="-fx-font-size: 12px; -fx-text-fill: #92a0be;"/>
+                <HBox spacing="8" alignment="CENTER_LEFT">
+                    <StackPane HBox.hgrow="ALWAYS">
+                        <PasswordField fx:id="confirmPasswordField"
+                                       promptText="Re-enter your password"
+                                       maxWidth="Infinity"
+                                       style="-fx-background-color: #0f1520;
+                                              -fx-text-fill: white;
+                                              -fx-prompt-text-fill: #44506a;
+                                              -fx-border-color: #2b3a58;
+                                              -fx-border-width: 1;
+                                              -fx-border-radius: 8;
+                                              -fx-background-radius: 8;
+                                              -fx-padding: 10 14;
+                                              -fx-font-size: 13px;"/>
+                        <TextField fx:id="confirmPasswordVisibleField"
+                                   visible="false"
+                                   managed="false"
+                                   promptText="Re-enter your password"
+                                   maxWidth="Infinity"
+                                   style="-fx-background-color: #0f1520;
+                                          -fx-text-fill: white;
+                                          -fx-prompt-text-fill: #44506a;
+                                          -fx-border-color: #2b3a58;
+                                          -fx-border-width: 1;
+                                          -fx-border-radius: 8;
+                                          -fx-background-radius: 8;
+                                          -fx-padding: 10 14;
+                                          -fx-font-size: 13px;"/>
+                    </StackPane>
+                    <Button fx:id="toggleConfirmPasswordButton"
+                            text="👁"
+                            onAction="#toggleConfirmPasswordVisibility"
+                            focusTraversable="false"
+                            style="-fx-background-color: #0f1520;
+                                   -fx-text-fill: #d6dcf0;
+                                   -fx-font-size: 15px;
+                                   -fx-font-weight: bold;
+                                   -fx-border-color: #2b3a58;
+                                   -fx-border-width: 1;
+                                   -fx-border-radius: 8;
+                                   -fx-background-radius: 8;
+                                   -fx-padding: 8 11;
+                                   -fx-cursor: hand;"/>
+                </HBox>
+            </VBox>
+
+            <VBox spacing="6">
+                <Label text="Account type" style="-fx-font-size: 12px; -fx-text-fill: #92a0be;"/>
+                <ChoiceBox fx:id="roleChoice"
+                           style="-fx-background-color: #0f1520;
+                                   -fx-text-fill: white;
+                                   -fx-mark-color: white;
+                                   -fx-border-color: #2b3a58;
+                                   -fx-border-width: 1;
+                                   -fx-border-radius: 8;
+                                   -fx-background-radius: 8;"/>
+                <Label fx:id="roleDescriptionLabel" wrapText="true"
+                       style="-fx-font-size: 11px; -fx-text-fill: #7d86a8;"/>
+            </VBox>
+
+            <VBox fx:id="storefrontBox" spacing="6">
+                <Label text="Storefront name" style="-fx-font-size: 12px; -fx-text-fill: #92a0be;"/>
+                <TextField fx:id="storefrontField"
+                           promptText="Required for seller accounts"
+                           style="-fx-background-color: #0f1520;
+                                  -fx-text-fill: white;
+                                  -fx-prompt-text-fill: #44506a;
+                                  -fx-border-color: #2b3a58;
+                                  -fx-border-width: 1;
+                                  -fx-border-radius: 8;
+                                  -fx-background-radius: 8;
+                                  -fx-padding: 10 14;
+                                  -fx-font-size: 13px;"/>
+            </VBox>
+
+            <Label fx:id="statusLabel" wrapText="true"
+                   style="-fx-font-size: 12px; -fx-text-fill: #32a883;"/>
+
+            <Button fx:id="registerButton"
+                    text="Create account"
+                    onAction="#handleRegister"
+                    maxWidth="Infinity"
+                    style="-fx-background-color: #32a883;
+                           -fx-text-fill: white;
+                           -fx-font-size: 14px;
+                           -fx-font-weight: bold;
+                           -fx-border-radius: 8;
+                           -fx-background-radius: 8;
+                           -fx-padding: 11 0;
+                           -fx-cursor: hand;"/>
+
+            <Button fx:id="backAfterSuccessButton"
+                    text="Back to sign in"
+                    onAction="#goToLogin"
+                    visible="false"
+                    managed="false"
+                    maxWidth="Infinity"
+                    style="-fx-background-color: #232844;
+                           -fx-text-fill: #d6dcf0;
+                           -fx-font-size: 13px;
+                           -fx-font-weight: bold;
+                           -fx-border-color: #343b5f;
+                           -fx-border-width: 1;
+                           -fx-border-radius: 8;
+                           -fx-background-radius: 8;
+                           -fx-padding: 10 0;
+                           -fx-cursor: hand;"/>
+
+            <HBox alignment="CENTER" spacing="4">
+                <Label text="Already have an account?"
+                       style="-fx-text-fill: #7d86a8; -fx-font-size: 12px;"/>
+                <Button text="Sign in"
+                        onAction="#goToLogin"
+                        style="-fx-background-color: transparent;
+                               -fx-text-fill: #7c6af7;
+                               -fx-font-size: 12px;
+                               -fx-font-weight: bold;
+                               -fx-padding: 0;
+                               -fx-cursor: hand;"/>
+            </HBox>
+
+        </VBox>
+    </VBox>
+</StackPane>

@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.auctionhouse.client.controller.AuctionDetailController"
+            style="-fx-background-color: #0f1118;">
+
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="12"
+              style="-fx-padding: 16 22; -fx-background-color: #171a26;
+                     -fx-border-color: #2b3047; -fx-border-width: 0 0 1 0;">
+            <Button text="Back" onAction="#goBack"
+                    style="-fx-background-color: #232844; -fx-text-fill: #d6dcf0;
+                           -fx-border-color: #343b5f; -fx-border-width: 1;
+                           -fx-border-radius: 10; -fx-background-radius: 10;
+                           -fx-padding: 8 14; -fx-cursor: hand;"/>
+            <Label text="AUCTION DETAIL"
+                   style="-fx-font-size: 17px; -fx-font-weight: bold; -fx-text-fill: #7c6af7;"/>
+        </HBox>
+    </top>
+
+    <center>
+        <ScrollPane fitToWidth="true"
+                    style="-fx-background: #0f1118; -fx-background-color: #0f1118;
+                           -fx-border-color: transparent;">
+            <VBox spacing="14" style="-fx-padding: 20;">
+
+                <VBox spacing="8"
+                      style="-fx-background-color: #171a26; -fx-border-color: #2b3047;
+                             -fx-border-width: 1; -fx-border-radius: 14; -fx-background-radius: 14;
+                             -fx-padding: 20;">
+                    <HBox alignment="CENTER_LEFT" spacing="12">
+                        <Label fx:id="titleLabel" text="-"
+                               style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <Label fx:id="statusValueLabel" text="-"
+                               style="-fx-font-size: 11px; -fx-font-weight: bold;
+                                      -fx-text-fill: #5dcaa5; -fx-background-color: #173527;
+                                      -fx-padding: 4 10; -fx-border-radius: 999; -fx-background-radius: 999;"/>
+                    </HBox>
+                    <HBox spacing="12">
+                        <Label fx:id="sellerLabel" text="-" style="-fx-font-size: 12px; -fx-text-fill: #9aa6c4;"/>
+                        <Label text="|" style="-fx-text-fill: #4c5673;"/>
+                        <Label fx:id="categoryLabel" text="-" style="-fx-font-size: 12px; -fx-text-fill: #9aa6c4;"/>
+                        <Label text="|" style="-fx-text-fill: #4c5673;"/>
+                        <Label fx:id="typeLabel" text="-" style="-fx-font-size: 12px; -fx-text-fill: #7c6af7;"/>
+                    </HBox>
+                    <Label fx:id="imageHintLabel" text=""
+                           style="-fx-font-size: 11px; -fx-text-fill: #6a7693;"/>
+                </VBox>
+
+                <HBox spacing="12">
+                    <VBox spacing="4" HBox.hgrow="ALWAYS"
+                          style="-fx-background-color: #171a26; -fx-border-color: #2b3047;
+                                 -fx-border-width: 1; -fx-border-radius: 12; -fx-background-radius: 12;
+                                 -fx-padding: 16;">
+                        <Label text="CURRENT PRICE" style="-fx-font-size: 10px; -fx-text-fill: #6a7693;"/>
+                        <Label fx:id="priceLabel" text="0.00"
+                               style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #f0c040;"/>
+                    </VBox>
+                    <VBox spacing="4" HBox.hgrow="ALWAYS"
+                          style="-fx-background-color: #171a26; -fx-border-color: #2b3047;
+                                 -fx-border-width: 1; -fx-border-radius: 12; -fx-background-radius: 12;
+                                 -fx-padding: 16;">
+                        <Label text="MINIMUM NEXT BID" style="-fx-font-size: 10px; -fx-text-fill: #6a7693;"/>
+                        <Label fx:id="nextBidLabel" text="0.00"
+                               style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #5dcaa5;"/>
+                    </VBox>
+                    <VBox spacing="4" HBox.hgrow="ALWAYS"
+                          style="-fx-background-color: #171a26; -fx-border-color: #2b3047;
+                                 -fx-border-width: 1; -fx-border-radius: 12; -fx-background-radius: 12;
+                                 -fx-padding: 16;">
+                        <Label text="TIME REMAINING" style="-fx-font-size: 10px; -fx-text-fill: #6a7693;"/>
+                        <Label fx:id="countdownLabel" text="-"
+                               style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #f09595;"/>
+                    </VBox>
+                </HBox>
+
+                <VBox spacing="8"
+                      style="-fx-background-color: #171a26; -fx-border-color: #2b3047;
+                             -fx-border-width: 1; -fx-border-radius: 12; -fx-background-radius: 12;
+                             -fx-padding: 16;">
+                    <Label text="DESCRIPTION" style="-fx-font-size: 10px; -fx-text-fill: #6a7693;"/>
+                    <Label fx:id="descriptionLabel" text="-" wrapText="true"
+                           style="-fx-font-size: 13px; -fx-text-fill: #d6dcf0;"/>
+                    <Label fx:id="productHighlightLabel" text=""
+                           style="-fx-font-size: 12px; -fx-text-fill: #7c6af7;"/>
+                </VBox>
+
+                <HBox spacing="12">
+                    <VBox spacing="4" HBox.hgrow="ALWAYS"
+                          style="-fx-background-color: #171a26; -fx-border-color: #2b3047;
+                                 -fx-border-width: 1; -fx-border-radius: 12; -fx-background-radius: 12;
+                                 -fx-padding: 14;">
+                        <Label text="STARTING PRICE" style="-fx-font-size: 10px; -fx-text-fill: #6a7693;"/>
+                        <Label fx:id="reserveLabel" text="-"
+                               style="-fx-font-size: 15px; -fx-font-weight: bold; -fx-text-fill: #d6dcf0;"/>
+                    </VBox>
+                    <VBox spacing="4" HBox.hgrow="ALWAYS"
+                          style="-fx-background-color: #171a26; -fx-border-color: #2b3047;
+                                 -fx-border-width: 1; -fx-border-radius: 12; -fx-background-radius: 12;
+                                 -fx-padding: 14;">
+                        <Label text="CURRENT WINNER" style="-fx-font-size: 10px; -fx-text-fill: #6a7693;"/>
+                        <Label fx:id="winnerValueLabel" text="-"
+                               style="-fx-font-size: 15px; -fx-font-weight: bold; -fx-text-fill: #f0c040;"/>
+                    </VBox>
+                </HBox>
+
+                <HBox spacing="10" alignment="CENTER_LEFT"
+                      style="-fx-background-color: #171a26; -fx-border-color: #7c6af7;
+                             -fx-border-width: 1; -fx-border-radius: 12; -fx-background-radius: 12;
+                             -fx-padding: 16;">
+                    <VBox spacing="4" HBox.hgrow="ALWAYS">
+                        <Label text="PLACE YOUR BID" style="-fx-font-size: 10px; -fx-text-fill: #7c6af7;"/>
+                        <TextField fx:id="bidAmountField" promptText="Enter bid amount" onAction="#placeBid"
+                                   style="-fx-background-color: #0d1019; -fx-text-fill: white;
+                                          -fx-prompt-text-fill: #4c5673; -fx-border-color: #2b3047;
+                                          -fx-border-width: 1; -fx-border-radius: 10; -fx-background-radius: 10;
+                                          -fx-padding: 10 12;"/>
+                    </VBox>
+                    <Button fx:id="placeBidButton" text="Place Bid" onAction="#placeBid" defaultButton="true"
+                            style="-fx-background-color: #7c6af7; -fx-text-fill: white;
+                                   -fx-font-weight: bold; -fx-border-radius: 10; -fx-background-radius: 10;
+                                   -fx-padding: 10 18; -fx-cursor: hand;"/>
+                </HBox>
+
+                <HBox spacing="10" alignment="CENTER_LEFT"
+                      style="-fx-background-color: #171a26; -fx-border-color: #2b3047;
+                             -fx-border-width: 1; -fx-border-radius: 12; -fx-background-radius: 12;
+                             -fx-padding: 16;">
+                    <VBox spacing="4" HBox.hgrow="ALWAYS">
+                        <Label text="AUTO-BID MAX" style="-fx-font-size: 10px; -fx-text-fill: #5dcaa5;"/>
+                        <TextField fx:id="autoBidMaxField" promptText="Maximum amount"
+                                   style="-fx-background-color: #0d1019; -fx-text-fill: white;
+                                          -fx-prompt-text-fill: #4c5673; -fx-border-color: #2b3047;
+                                          -fx-border-width: 1; -fx-border-radius: 10; -fx-background-radius: 10;
+                                          -fx-padding: 10 12;"/>
+                    </VBox>
+                    <VBox spacing="4" HBox.hgrow="ALWAYS">
+                        <Label text="AUTO-BID STEP" style="-fx-font-size: 10px; -fx-text-fill: #5dcaa5;"/>
+                        <TextField fx:id="autoBidIncrementField" promptText="Increment"
+                                   style="-fx-background-color: #0d1019; -fx-text-fill: white;
+                                          -fx-prompt-text-fill: #4c5673; -fx-border-color: #2b3047;
+                                          -fx-border-width: 1; -fx-border-radius: 10; -fx-background-radius: 10;
+                                          -fx-padding: 10 12;"/>
+                    </VBox>
+                    <Button fx:id="autoBidButton" text="Arm Auto-Bid" onAction="#setAutoBid"
+                            style="-fx-background-color: #5dcaa5; -fx-text-fill: #0f1118;
+                                   -fx-font-weight: bold; -fx-border-radius: 10; -fx-background-radius: 10;
+                                   -fx-padding: 10 18; -fx-cursor: hand;"/>
+                </HBox>
+
+                <Label fx:id="actionStatusLabel" text="" wrapText="true"
+                       style="-fx-font-size: 12px; -fx-text-fill: #7c6af7;"/>
+
+                <VBox spacing="8"
+                      style="-fx-background-color: #171a26; -fx-border-color: #2b3047;
+                             -fx-border-width: 1; -fx-border-radius: 12; -fx-background-radius: 12;
+                             -fx-padding: 16;">
+                    <Label text="BID PRICE TREND" style="-fx-font-size: 10px; -fx-text-fill: #6a7693;"/>
+                    <LineChart fx:id="bidChart" animated="false" legendVisible="false" createSymbols="true"
+                               prefHeight="220" style="-fx-background-color: transparent;">
+                        <xAxis>
+                            <NumberAxis fx:id="bidChartXAxis" label="Bid #" autoRanging="false"
+                                        lowerBound="0" upperBound="2" tickUnit="1"/>
+                        </xAxis>
+                        <yAxis>
+                            <NumberAxis fx:id="bidChartYAxis" label="Amount"/>
+                        </yAxis>
+                    </LineChart>
+                </VBox>
+
+                <VBox spacing="8"
+                      style="-fx-background-color: #171a26; -fx-border-color: #2b3047;
+                             -fx-border-width: 1; -fx-border-radius: 12; -fx-background-radius: 12;
+                             -fx-padding: 16;">
+                    <Label text="BID HISTORY" style="-fx-font-size: 10px; -fx-text-fill: #6a7693;"/>
+                    <ListView fx:id="bidHistoryListView" prefHeight="180"
+                              style="-fx-background-color: transparent;
+                                     -fx-control-inner-background: transparent;
+                                     -fx-border-color: transparent;"/>
+                </VBox>
+
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

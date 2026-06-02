@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane style="-fx-background-color: linear-gradient(to bottom, #f7f2ea, #efe6da);" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/26" fx:controller="com.auctionhouse.client.controller.AccountController">
+
+    <top>
+        <VBox spacing="16" style="-fx-background-color: linear-gradient(to right, #355c52, #4d776c);                      -fx-padding: 22 28 22 28; -fx-border-color: #2c4e45; -fx-border-width: 0 0 1 0;">
+            <HBox alignment="CENTER_LEFT" spacing="14">
+                <Button onAction="#goBack" style="-fx-background-color: rgba(255,255,255,0.14); -fx-text-fill: #f8f5ef;                                -fx-font-size: 12px; -fx-font-weight: bold;                                -fx-border-color: rgba(255,255,255,0.24); -fx-border-width: 1;                                -fx-border-radius: 999; -fx-background-radius: 999;                                -fx-padding: 8 16; -fx-cursor: hand;" text="Back" />
+                <Label style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #f8f5ef;" text="Account Center" />
+
+                <Region HBox.hgrow="ALWAYS" />
+
+                <Button onAction="#refreshAccount" style="-fx-background-color: #f3ede2; -fx-text-fill: #355c52;                                -fx-font-size: 12px; -fx-font-weight: bold;                                -fx-background-radius: 999; -fx-padding: 8 16; -fx-cursor: hand;" text="Refresh" />
+            </HBox>
+
+            <HBox alignment="CENTER_LEFT" spacing="18">
+                <StackPane maxHeight="64" maxWidth="64" minHeight="64" minWidth="64" style="-fx-background-color: #f7efe2; -fx-background-radius: 999;">
+                    <Label fx:id="avatarLabel" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #355c52;" text="U" />
+                </StackPane>
+
+                <VBox spacing="4">
+                    <Label fx:id="accountNameLabel" style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #f8f5ef;" text="User" />
+                    <Label fx:id="roleLabel" style="-fx-font-size: 12px; -fx-text-fill: #dce9e3;" text="Bidder account" />
+                    <Label fx:id="accountSummaryLabel" style="-fx-font-size: 12px; -fx-text-fill: #f6dcc0;" text="Persistent account overview" />
+                </VBox>
+
+                <Region HBox.hgrow="ALWAYS" />
+
+                <HBox spacing="12">
+                    <VBox spacing="4" style="-fx-background-color: rgba(248,245,239,0.14); -fx-background-radius: 18;                                  -fx-border-color: rgba(255,255,255,0.16); -fx-border-radius: 18; -fx-padding: 12 18;">
+                        <Label fx:id="balanceCaptionLabel" style="-fx-font-size: 11px; -fx-text-fill: #dce9e3;" text="Persistent wallet balance" />
+                        <Label fx:id="walletBalanceLabel" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #f8f5ef;" text="\$0.00" />
+                    </VBox>
+
+                    <VBox alignment="CENTER" spacing="3" style="-fx-background-color: #f3ede2; -fx-background-radius: 18; -fx-padding: 12 18;">
+                        <Label style="-fx-font-size: 11px; -fx-text-fill: #6b6a63;" text="Payments" />
+                        <Label fx:id="paymentCountLabel" style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #355c52;" text="0" />
+                    </VBox>
+
+                    <VBox alignment="CENTER" spacing="3" style="-fx-background-color: #f3ede2; -fx-background-radius: 18; -fx-padding: 12 18;">
+                        <Label style="-fx-font-size: 11px; -fx-text-fill: #6b6a63;" text="Joined" />
+                        <Label fx:id="joinedCountLabel" style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #355c52;" text="0" />
+                    </VBox>
+                </HBox>
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <ScrollPane fitToWidth="true" style="-fx-background: transparent; -fx-background-color: transparent; -fx-border-color: transparent;">
+            <content>
+                <VBox maxWidth="980" spacing="16" style="-fx-padding: 22 28 28 28;">
+                    <Label fx:id="accountStatusLabel" style="-fx-font-size: 12px; -fx-text-fill: #5a655f;" text="" />
+
+                    <Accordion>
+                        <panes>
+                            <TitledPane expanded="true" style="-fx-font-size: 13px; -fx-font-weight: bold;" text="Deposit">
+                                <content>
+                                    <VBox spacing="14" style="-fx-background-color: #fcf8f2; -fx-background-radius: 0 0 18 18;                                                  -fx-border-color: #d9d1c7; -fx-border-width: 0 1 1 1; -fx-padding: 18;">
+                                        <Label style="-fx-font-size: 12px; -fx-text-fill: #6c746f;" text="Enter the amount you wish to deposit" textFill="#313f34" />
+                                        <HBox alignment="CENTER_LEFT" spacing="12">
+                                            <TextField fx:id="depositAmountField" promptText="Example: 150" style="-fx-background-color: #f7f2ea; -fx-text-fill: #21332d;                                                               -fx-prompt-text-fill: #8d8b84; -fx-border-color: #cfc7bc;                                                               -fx-border-radius: 12; -fx-background-radius: 12;                                                               -fx-padding: 11 14;" />
+                                            <Button onAction="#depositFunds" style="-fx-background-color: #355c52; -fx-text-fill: #f8f5ef;                                                            -fx-font-size: 12px; -fx-font-weight: bold;                                                            -fx-background-radius: 999; -fx-padding: 10 20; -fx-cursor: hand;" text="Enter" />
+                                        </HBox>
+                                    </VBox>
+                                </content>
+                            </TitledPane>
+
+                            <TitledPane style="-fx-font-size: 13px; -fx-font-weight: bold;" text="Payment">
+                                <content>
+                                    <HBox spacing="16" style="-fx-background-color: #fcf8f2; -fx-background-radius: 0 0 18 18;                                                  -fx-border-color: #d9d1c7; -fx-border-width: 0 1 1 1; -fx-padding: 18;">
+                                        <VBox spacing="10" style="-fx-background-color: #f4ede4; -fx-background-radius: 16; -fx-padding: 16;" HBox.hgrow="ALWAYS">
+                                            <Label style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #21332d;" text="Finished auctions waiting for payment" />
+                                            <Label fx:id="paymentSummaryLabel" style="-fx-font-size: 12px; -fx-text-fill: #6c746f;" text="No payment is pending for this account." />
+                                            <ListView fx:id="payableAuctionListView" prefHeight="260" style="-fx-background-color: transparent; -fx-control-inner-background: transparent;" />
+                                        </VBox>
+
+                                        <VBox prefWidth="330" spacing="10" style="-fx-background-color: #fffdf9; -fx-background-radius: 18;                                                      -fx-border-color: #d9d1c7; -fx-border-radius: 18; -fx-padding: 18;">
+                                            <Label style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #21332d;" text="Payment detail" />
+                                            <Separator />
+                                            <Label fx:id="paymentItemLabel" style="-fx-font-size: 15px; -fx-font-weight: bold; -fx-text-fill: #21332d;" text="Select a finished auction from the payment list." wrapText="true" />
+                                            <Label fx:id="paymentAmountLabel" style="-fx-font-size: 12px; -fx-text-fill: #5e6963;" text="Amount due: --" />
+                                            <Label fx:id="paymentStateLabel" style="-fx-font-size: 12px; -fx-text-fill: #5e6963;" text="Payment status: No auction selected" wrapText="true" />
+                                            <Label fx:id="paymentWinnerLabel" style="-fx-font-size: 12px; -fx-text-fill: #5e6963;" text="Winner: --" />
+                                            <Region VBox.vgrow="ALWAYS" />
+                                            <Button fx:id="payNowButton" onAction="#paySelectedAuction" style="-fx-background-color: #d7e6df; -fx-text-fill: #355c52;                                                            -fx-font-size: 12px; -fx-font-weight: bold;                                                            -fx-background-radius: 999; -fx-padding: 10 18; -fx-cursor: hand;" text="Thanh toan ngay" />
+                                        </VBox>
+                                    </HBox>
+                                </content>
+                            </TitledPane>
+
+                            <TitledPane style="-fx-font-size: 13px; -fx-font-weight: bold;" text="Auction History">
+                                <content>
+                                    <HBox spacing="16" style="-fx-background-color: #fcf8f2; -fx-background-radius: 0 0 18 18;                                                  -fx-border-color: #d9d1c7; -fx-border-width: 0 1 1 1; -fx-padding: 18;">
+                                        <VBox spacing="10" style="-fx-background-color: #f4ede4; -fx-background-radius: 16; -fx-padding: 16;" HBox.hgrow="ALWAYS">
+                                            <Label style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #21332d;" text="Auctions you have joined" />
+                                            <Label fx:id="joinedSummaryLabel" style="-fx-font-size: 12px; -fx-text-fill: #6c746f;" text="0 auctions joined" />
+                                            <ListView fx:id="participatedAuctionListView" prefHeight="280" style="-fx-background-color: transparent; -fx-control-inner-background: transparent;" />
+                                        </VBox>
+
+                                        <VBox prefWidth="340" spacing="10" style="-fx-background-color: #fffdf9; -fx-background-radius: 18;                                                      -fx-border-color: #d9d1c7; -fx-border-radius: 18; -fx-padding: 18;">
+                                            <Label style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #21332d;" text="Auction detail" />
+                                            <Separator />
+                                            <Label fx:id="joinedTitleLabel" style="-fx-font-size: 15px; -fx-font-weight: bold; -fx-text-fill: #21332d;" text="Select one joined auction." wrapText="true" />
+                                            <Label fx:id="joinedStatusLabel" style="-fx-font-size: 12px; -fx-text-fill: #5e6963;" text="Status: --" />
+                                            <Label fx:id="joinedPriceLabel" style="-fx-font-size: 12px; -fx-text-fill: #5e6963;" text="Current price: --" />
+                                            <Label fx:id="joinedDetailLabel" style="-fx-font-size: 12px; -fx-text-fill: #5e6963;" text="Auction details and your participation summary will appear here." wrapText="true" />
+                                        </VBox>
+                                    </HBox>
+                                </content>
+                            </TitledPane>
+
+                            <TitledPane style="-fx-font-size: 13px; -fx-font-weight: bold;" text="Log out">
+                                <content>
+                                    <VBox spacing="12" style="-fx-background-color: #fcf8f2; -fx-background-radius: 0 0 18 18;                                                  -fx-border-color: #d9d1c7; -fx-border-width: 0 1 1 1; -fx-padding: 18;">
+                                        <Label style="-fx-font-size: 12px; -fx-text-fill: #6c746f;" text="End the current session and return to the login screen." />
+                                        <Button onAction="#handleLogout" style="-fx-background-color: transparent; -fx-text-fill: #a45e5e;                                                        -fx-font-size: 12px; -fx-font-weight: bold;                                                        -fx-border-color: #d8b6b6; -fx-border-width: 1;                                                        -fx-border-radius: 999; -fx-background-radius: 999;                                                        -fx-padding: 9 18; -fx-cursor: hand;" text="Log out" />
+                                    </VBox>
+                                </content>
+                            </TitledPane>
+                        </panes>
+                    </Accordion>
+                </VBox>
+            </content>
+        </ScrollPane>
+    </center>
+</BorderPane>
