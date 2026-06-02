@@ -10,7 +10,6 @@
     </parent>
 
     <artifactId>auction-client</artifactId>
-    <name>Auction Client</name>
 
     <dependencies>
         <dependency>
