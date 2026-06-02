@@ -166,13 +166,13 @@ mvn -DskipTests compile
 Chay server:
 
 ```powershell
-mvn -pl auction-server -Prun-server process-classes
+mvn -pl auction-server -am -Prun-server process-classes
 ```
 
 Chay client:
 
 ```powershell
-mvn -pl auction-client -Prun-client process-classes
+mvn -pl auction-client -am -Prun-client process-classes
 ```
 
 Neu port mac dinh `5050` ban, server se tu tim port tiep theo va ghi vao `active-port.txt`.
