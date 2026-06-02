@@ -10,7 +10,6 @@
     </parent>
 
     <artifactId>auction-server</artifactId>
-    <name>Auction Server</name>
 
     <dependencies>
         <dependency>
