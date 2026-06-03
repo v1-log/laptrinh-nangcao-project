@@ -1,4 +1,4 @@
-# Flow chay ung dung Auction House
+﻿# Flow chay ung dung Auction House
 
 > Comment hoc: File nay dung de hoc "bam nut nao thi goi ham nao". Doc theo tung flow: Controller -> `AuctionClientService` -> socket -> `ClientSession` -> service server -> DAO/domain -> response/event ve UI.
 

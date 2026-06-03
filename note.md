@@ -1,4 +1,4 @@
-# Note Codex - Auction House
+﻿# Note Codex - Auction House
 
 ## 0. Bang cham diem theo rubric
 
